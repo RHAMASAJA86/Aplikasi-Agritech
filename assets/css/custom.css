@@ -1,0 +1,45 @@
+/* File: assets/css/custom.css */
+
+/* Tema hijau pertanian menyesuaikan sidebar-dark-success */
+.app-sidebar .brand-link,
+.app-sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.sidebar-brand .brand-text {
+    letter-spacing: .5px;
+}
+
+.user-panel {
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+/* Info box angka lebih tegas */
+.info-box .info-box-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.info-box .info-box-text {
+    font-size: .8rem;
+    text-transform: uppercase;
+    opacity: .9;
+}
+
+/* Badge status musim tanam */
+.badge.bg-success { background-color: #198754 !important; }
+.badge.bg-secondary { background-color: #6c757d !important; }
+
+/* Sedikit jarak antar tombol aksi di tabel */
+td .btn + .btn {
+    margin-left: 2px;
+}
+
+/* Konten tabel lebih rapi saat dicetak (halaman Laporan) */
+@media print {
+    body { background: #fff !important; }
+    .card { border: none !important; box-shadow: none !important; }
+}
+
+/* Login page */
+.login-card .form-label { font-weight: 600; font-size: .875rem; }
