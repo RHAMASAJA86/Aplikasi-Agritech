@@ -9,21 +9,11 @@ function isActive($file, $currentPage)
 <aside class="app-sidebar bg-success shadow" data-bs-theme="dark">
     <div class="sidebar-brand">
         <a href="<?= BASE_URL ?>pages/dashboard.php" class="brand-link">
-            <i class="bi bi-flower1 fs-4 ms-2 me-2"></i>
-            <!--<span class="brand-text fw-bold">AGRITECH</span>-->
             <img src="<?= BASE_URL ?>assets/img/iconAgritechPutih.png" alt="Logo Agritech" style="height: 50px;">
         </a>
     </div>
 
     <div class="sidebar-wrapper">
-        <div class="user-panel d-flex align-items-center px-3 py-2">
-            <i class="bi bi-person-circle fs-2 me-2"></i>
-            <div>
-                <div class="fw-semibold"><?= htmlspecialchars($currentUser['nama'] ?? '-') ?></div>
-                <small class="text-uppercase opacity-75"><?= htmlspecialchars($currentUser['role'] ?? '-') ?></small>
-            </div>
-        </div>
-
         <nav class="mt-2">
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
@@ -62,7 +52,7 @@ function isActive($file, $currentPage)
                         <p>Laporan</p>
                     </a>
                 </li>
-                <li class="nav-item mt-3 border-top pt-2">
+                <li class="nav-item">
                     <a href="<?= BASE_URL ?>logout.php" class="nav-link logout-link">
                         <i class="nav-icon bi bi-box-arrow-right"></i>
                         <p>Keluar</p>

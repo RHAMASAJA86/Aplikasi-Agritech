@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login | Agritech</title>
-    <!-- Bootstrap 5 via AdminLTE 4 CDN -->
+    <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte.min.css">
     <style>
         body, html {
@@ -153,11 +153,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="form-check">
+            <!--<div class="form-check">
                 <input type="checkbox" name="remember" id="remember" class="form-check-input" style="cursor: pointer;">
                 <label for="remember" class="form-check-label text-secondary small" style="cursor: pointer; user-select: none;">Ingat saya</label>
-            </div>
-                <a href="lupa_password.php" class="text-success text-decoration-none small fw-semibold">Lupa password?</a>
+            </div>-->
+                <a href="<?= BASE_URL ?>lupa_password.php" class="text-success text-decoration-none small fw-semibold">Lupa password?</a>
             </div>
 
             <div class="d-grid">
@@ -167,23 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<!-- Bootstrap 5 Bundle JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Validasi form Bootstrap sederhana
-    (function () {
-        'use strict'
-        var forms = document.querySelectorAll('.needs-validation')
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
     // toggle
     const togglePassword = document.querySelector('#togglePassword');
     const password = document.querySelector('#password');

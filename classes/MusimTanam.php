@@ -69,10 +69,31 @@ class MusimTanam
         return $stmt->execute([$status, $id]);
     }
 
+    //public function delete($id)
+    //{
+    //    $stmt = $this->db->prepare("DELETE FROM musim_tanam WHERE id_musim = ?");
+    //    return $stmt->execute([$id]);
+    //}
+
+    //kode diatas ini diperbarui ganti dibawah ini
     public function delete($id)
     {
-        $stmt = $this->db->prepare("DELETE FROM musim_tanam WHERE id_musim = ?");
-        return $stmt->execute([$id]);
+        $this->db->beginTransaction();
+        try {
+            // Hapus dulu riwayat penjualan (tidak auto-cascade dari DB)
+            $stmt = $this->db->prepare("DELETE FROM penjualan WHERE id_musim = ?");
+            $stmt->execute([$id]);
+
+            // biaya & stok_gudang otomatis ikut terhapus (sudah ON DELETE CASCADE)
+            $stmt = $this->db->prepare("DELETE FROM musim_tanam WHERE id_musim = ?");
+            $stmt->execute([$id]);
+
+            $this->db->commit();
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            throw $e;
+        }
     }
 
     public function getTotalHasilPanen()

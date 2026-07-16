@@ -46,7 +46,7 @@ if (!function_exists('formatTanggalIndo')) {
     <!-- AdminLTE 4 (letakkan hasil download dist/ AdminLTE4 di assets/adminlte/) -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/adminlte/dist/css/adminlte.css">
     <!-- Bootstrap Icons -->
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@4/dist/css/adminlte.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/custom.css">

@@ -1,19 +1,5 @@
 /* File: assets/css/custom.css */
 
-/* Tema hijau pertanian menyesuaikan sidebar-dark-success */
-.app-sidebar .brand-link,
-.app-sidebar .nav-link.active {
-    background-color: rgba(255, 255, 255, .1);
-}
-
-.sidebar-brand .brand-text {
-    letter-spacing: .5px;
-}
-
-.user-panel {
-    border-bottom: 1px solid rgba(255, 255, 255, .15);
-}
-
 /* Info box angka lebih tegas */
 .info-box .info-box-number {
     font-size: 1.25rem;
@@ -43,3 +29,15 @@ td .btn + .btn {
 
 /* Login page */
 .login-card .form-label { font-weight: 600; font-size: .875rem; }
+
+/* Active/Selected state highlight pada sidebar */
+.sidebar-menu .nav-link.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid rgba(255, 255, 255, 0.85);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-menu .nav-link.active i,
+.sidebar-menu .nav-link.active p {
+    color: #fff;
+}

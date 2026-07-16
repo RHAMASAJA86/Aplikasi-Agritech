@@ -51,7 +51,7 @@ include __DIR__ . '/../includes/sidebar.php';
                             <th>Luas Lahan</th>
                             <th>Tanggal Panen</th>
                             <th>Hasil Panen</th>
-                            <th style="width:230px;">Keterangan</th>
+                            <th style="width:290px;">Keterangan</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -79,7 +79,8 @@ include __DIR__ . '/../includes/sidebar.php';
                                         <?php if ($m['status'] === 'Aktif'): ?>
                                             <button type="button" class="btn btn-sm btn-success" onclick="tandaiSelesai(<?= (int) $m['id_musim'] ?>)">Tandai Selesai</button>
                                         <?php endif; ?>
-                                        <button type="button" class="btn btn-sm btn-danger" onclick="hapusMusim(<?= (int) $m['id_musim'] ?>)"><i class="bi bi-trash"></i></button>
+                                        <!--<button type="button" class="btn btn-sm btn-danger" onclick="hapusMusim(<?= (int) $m['id_musim'] ?>)"><i class="bi bi-trash"></i></button>-->
+                                        <button type="button" class="btn btn-sm btn-danger" onclick="hapusMusim(<?= (int) $m['id_musim'] ?>)"> Hapus </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -8,27 +8,25 @@
                     <i class="bi bi-list"></i>
                 </a>
             </li>
-            <li class="nav-item d-none d-md-flex align-items-center ms-2">
-                <span class="fw-semibold text-body"><?= htmlspecialchars($pageTitle) ?></span>
-            </li>
         </ul>
 
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
+                <?php
+                $fotoPath    = __DIR__ . '/../assets/img/profile.png';
+                $fotoVersion = file_exists($fotoPath) ? filemtime($fotoPath) : time();
+                ?>
                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-person-circle fs-4 me-1"></i>
+                    <img src="<?= BASE_URL ?>assets/img/profile.png?v=<?= $fotoVersion ?>" alt="Foto Profil"
+                        class="rounded-circle me-2" style="width:32px; height:32px; object-fit:cover;">
                     <span class="d-none d-md-inline"><?= htmlspecialchars($currentUser['nama'] ?? '') ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/profil.php"><i class="bi bi-person me-2"></i>Profil</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item text-danger logout-link" href="<?= BASE_URL ?>logout.php">
-                            <i class="bi bi-box-arrow-right me-2"></i>Keluar
-                        </a>
-                    </li>
-                </ul>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/profil.php"><i class="bi bi-image me-2"></i>Profil</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>pages/pengaturan.php"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
+                </li>
+
+                 
             </li>
         </ul>
     </div>

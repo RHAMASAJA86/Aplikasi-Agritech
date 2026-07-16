@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (form) form.classList.remove('was-validated');
         });
     });
-
 });
 
 /**
@@ -53,12 +52,7 @@ function submitFormAjax(url, form, onSuccess) {
         .catch(() => Swal.fire('Gagal', 'Terjadi kesalahan koneksi ke server.', 'error'));
 }
 
-/**
- * Helper konfirmasi hapus generik via SweetAlert2.
- *
- * @param {string} url endpoint actions/*.php?act=delete&id=...
- * @param {Function} onSuccess
- */
+
 function konfirmasiHapus(url, onSuccess) {
     Swal.fire({
         title: 'Hapus data ini?',

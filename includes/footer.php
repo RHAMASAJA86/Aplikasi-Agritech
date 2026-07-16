@@ -2,8 +2,8 @@
 // Menutup app-main (dibuka di halaman masing-masing), lalu app-wrapper, lalu load JS.
 ?>
     <footer class="app-footer">
-        <div class="float-end d-none d-sm-inline">Agritech &copy; <?= date('Y') ?></div>
-        <strong>Copyright &copy; <?= date('Y') ?> Agritech.</strong> Seluruh hak cipta dilindungi.
+        <!--<div class="float-end d-none d-sm-inline">Agritech &copy; <?= date('Y') ?></div>-->
+        <strong>Copyright <?= date('Y') ?> Agritech.
     </footer>
 </div><!-- /.app-wrapper -->
 

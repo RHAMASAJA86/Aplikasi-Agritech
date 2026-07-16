@@ -25,9 +25,23 @@ $penjualanDetail = $musimFilter !== '' ? $laporanModel->getPenjualanDetail((int)
 $stokDetail      = $musimFilter !== '' ? $laporanModel->getStokDetail((int) $musimFilter) : [];
 
 // Tab Siklus Panen selalu menampilkan seluruh musim + ringkasan v_laporan
-$db = Database::getInstance()->getConnection();
-$semuaMusimRingkasan = $db->query("SELECT * FROM v_laporan ORDER BY id_musim DESC")->fetchAll();
+//$db = Database::getInstance()->getConnection();
+//$semuaMusimRingkasan = $db->query("SELECT * FROM v_laporan ORDER BY id_musim DESC")->fetchAll();
 
+// Tab Siklus Panen selalu menampilkan seluruh musim + ringkasan (hitung langsung, tidak pakai v_laporan)
+$db = Database::getInstance()->getConnection();
+$semuaMusimRingkasan = $db->query(
+    "SELECT
+        m.id_musim,
+        m.nama_musim,
+        IFNULL(b.total_biaya, 0) AS total_pengeluaran,
+        IFNULL(p.total_jual, 0) AS total_pendapatan,
+        IFNULL(p.total_jual, 0) - IFNULL(b.total_biaya, 0) AS keuntungan
+     FROM musim_tanam m
+     LEFT JOIN (SELECT id_musim, SUM(nominal) AS total_biaya FROM biaya GROUP BY id_musim) b ON b.id_musim = m.id_musim
+     LEFT JOIN (SELECT id_musim, SUM(total) AS total_jual FROM penjualan GROUP BY id_musim) p ON p.id_musim = m.id_musim
+     ORDER BY m.id_musim DESC"
+)->fetchAll();
 $daftarMusim = $musimModel->getAll();
 
 include __DIR__ . '/../includes/header.php';
@@ -69,7 +83,7 @@ include __DIR__ . '/../includes/sidebar.php';
                             <input type="month" name="bulan" class="form-control" value="<?= htmlspecialchars($bulan) ?>">
                         </div>
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-success w-100"><i class="bi bi-funnel"></i> Tampilkan</button>
+                            <button type="submit" class="btn btn-success w-100"><i class="bi bi-funnel"></i> Filter</button>
                         </div>
                         <div class="col-md-3 text-md-end">
                             <button type="button" class="btn btn-outline-success" onclick="window.print()">
