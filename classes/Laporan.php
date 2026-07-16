@@ -10,31 +10,6 @@ class Laporan
         $this->db = Database::getInstance()->getConnection();
     }
 
-    // Pakai view v_laporan. Kalau $id_musim null -> gabung SUM semua musim ("Semua Laporan").
-    //public function getRingkasan($id_musim = null)
-    //{
-    //    if (!empty($id_musim)) {
-    //        $stmt = $this->db->prepare("SELECT * FROM v_laporan WHERE id_musim = ?");
-    //        $stmt->execute([$id_musim]);
-    //        return $stmt->fetch() ?: [
-    //            'id_musim' => $id_musim, 'nama_musim' => '-',
-    //            'total_pengeluaran' => 0, 'total_pendapatan' => 0, 'keuntungan' => 0,
-    //        ];
-    //    }
-
-    //    $rows = $this->db->query("SELECT * FROM v_laporan")->fetchAll();
-    //    $ringkasan = ['nama_musim' => 'Semua Musim', 'total_pengeluaran' => 0, 'total_pendapatan' => 0, 'keuntungan' => 0];
-    //    foreach ($rows as $r) {
-    //        $ringkasan['total_pengeluaran'] += (float) $r['total_pengeluaran'];
-    //        $ringkasan['total_pendapatan']  += (float) $r['total_pendapatan'];
-    //        $ringkasan['keuntungan']        += (float) $r['keuntungan'];
-    //    }
-    //    return $ringkasan;
-    //}
-
-    // terbaru untuk ganti kode diatas 
-    // Hitung langsung dari tabel biaya & penjualan (tidak pakai v_laporan lagi,
-    // karena function MySQL-nya kadang salah hitung kalau query menghasilkan banyak baris).
     public function getRingkasan($id_musim = null)
     {
         if (!empty($id_musim)) {

@@ -59,23 +59,12 @@ class MusimTanam
         ]);
     }
 
-    // Khusus ganti status. Kalau diubah ke 'Selesai', trigger trg_tambah_stok
-    // otomatis insert ke stok_gudang pakai nilai hasil_panen TERBARU.
-    // Karena itu, kalau Edit sekaligus mau tandai Selesai: panggil update() dulu
-    // (simpan hasil_panen), baru panggil updateStatus() setelahnya.
     public function updateStatus($id, $status)
     {
         $stmt = $this->db->prepare("UPDATE musim_tanam SET status = ? WHERE id_musim = ?");
         return $stmt->execute([$status, $id]);
     }
 
-    //public function delete($id)
-    //{
-    //    $stmt = $this->db->prepare("DELETE FROM musim_tanam WHERE id_musim = ?");
-    //    return $stmt->execute([$id]);
-    //}
-
-    //kode diatas ini diperbarui ganti dibawah ini
     public function delete($id)
     {
         $this->db->beginTransaction();

@@ -28,10 +28,6 @@ include __DIR__ . '/../includes/sidebar.php';
                         <div class="card-header"><h5 class="card-title mb-0">Ubah Nama</h5></div>
                         <div class="card-body">
                             <form id="formNama">
-                                <!--<div class="mb-3">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" value="<?= htmlspecialchars($currentUser['username']) ?>" disabled>
-                                </div>-->
                                 <div class="mb-3">
                                     <label class="form-label">Username</label>
                                     <input type="text" name="username" id="inputUsername" class="form-control"

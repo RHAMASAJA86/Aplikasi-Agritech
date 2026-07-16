@@ -153,10 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-4">
-            <!--<div class="form-check">
-                <input type="checkbox" name="remember" id="remember" class="form-check-input" style="cursor: pointer;">
-                <label for="remember" class="form-check-label text-secondary small" style="cursor: pointer; user-select: none;">Ingat saya</label>
-            </div>-->
                 <a href="<?= BASE_URL ?>lupa_password.php" class="text-success text-decoration-none small fw-semibold">Lupa password?</a>
             </div>
 

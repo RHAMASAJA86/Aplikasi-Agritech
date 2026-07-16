@@ -17,15 +17,6 @@ $act = $_GET['act'] ?? '';
 
 try {
     switch ($act) {
-        //case 'update_nama':
-        //    $nama = trim(htmlspecialchars($_POST['nama'] ?? ''));
-        //   if ($nama === '') {
-        //        echo json_encode(['status' => 'error', 'message' => 'Nama tidak boleh kosong.']);
-        //        exit;
-        //    }
-        //    $ok = $auth->updateNama($currentUser['id_user'], $nama);
-        //    echo json_encode(['status' => $ok ? 'success' : 'error', 'message' => $ok ? 'Nama berhasil diperbarui.' : 'Gagal memperbarui nama.']);
-        //    break; 
         case 'update_nama':
         $nama     = trim(htmlspecialchars($_POST['nama'] ?? ''));
         $username = trim(htmlspecialchars($_POST['username'] ?? ''));
