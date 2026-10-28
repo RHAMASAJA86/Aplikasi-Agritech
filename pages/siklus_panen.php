@@ -12,10 +12,19 @@ $pageTitle = 'Siklus Panen';
 $musimModel  = new MusimTanam();
 $daftarMusim = $musimModel->getAll();
 
-// Ambil ringkasan (v_laporan) sekali saja, index by id_musim, biar tidak query berulang per baris
+// Ambil ringkasan per musim
 $db = Database::getInstance()->getConnection();
 $ringkasanPerMusim = [];
-foreach ($db->query("SELECT * FROM v_laporan")->fetchAll() as $r) {
+$sqlRingkasan = "SELECT
+        m.id_musim,
+        m.nama_musim,
+        IFNULL(b.total_biaya, 0) AS total_pengeluaran,
+        IFNULL(p.total_jual, 0) AS total_pendapatan,
+        IFNULL(p.total_jual, 0) - IFNULL(b.total_biaya, 0) AS keuntungan
+     FROM musim_tanam m
+     LEFT JOIN (SELECT id_musim, SUM(nominal) AS total_biaya FROM biaya GROUP BY id_musim) b ON b.id_musim = m.id_musim
+     LEFT JOIN (SELECT id_musim, SUM(total) AS total_jual FROM penjualan GROUP BY id_musim) p ON p.id_musim = m.id_musim";
+foreach ($db->query($sqlRingkasan)->fetchAll() as $r) {
     $ringkasanPerMusim[$r['id_musim']] = $r;
 }
 
